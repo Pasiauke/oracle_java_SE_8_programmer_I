@@ -33,7 +33,7 @@ public class JavaBasics {
                     new Features().features();
                     break;
                 default:
-                    System.out.println("Hello!" + Arrays.toString(args));
+                    System.out.println("Please use correct argument!");
 
             }
         }
