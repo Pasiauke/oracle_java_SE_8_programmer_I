@@ -44,8 +44,7 @@ public class JavaBasics {
         STRUCTURE("structure"),
         EXECUTABLE("executable"),
         IMPORT("import"),
-        FEATURES("features"),
-        NONE("");
+        FEATURES("features");
 
         private final String name;
 
@@ -56,7 +55,7 @@ public class JavaBasics {
         public static ARGS getArg(final String name) {
             return Arrays.stream(values())
                     .filter(a -> a.getName().equals(name))
-                    .findFirst().orElse(NONE);
+                    .findFirst().orElse(null);
         }
 
         public String getName() {
