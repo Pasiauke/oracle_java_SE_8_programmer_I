@@ -7,7 +7,6 @@ import structure.ClassStructure;
 import java.util.Arrays;
 
 public class JavaBasics {
-
     public static void main(final String... args) {
         if (args.length != 0) {
             ARGS argument = ARGS.getArg(args[0]);
