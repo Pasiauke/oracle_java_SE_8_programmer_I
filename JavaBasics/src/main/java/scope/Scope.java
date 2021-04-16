@@ -4,6 +4,7 @@ package scope;
  * @author Paweł Kołczyk-Kasprzycki pawel.kolczyk-kasprzycki@gmail.com
  * <p>
  * This purpose of this class is show the scope of variables in Java.
+ *
  */
 
 public class Scope {
