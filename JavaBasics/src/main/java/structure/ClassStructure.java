@@ -1,7 +1,7 @@
 package structure;
 
 /**
- * @author Paweł Kołczyk-Kasprzycki pawel.kolczyk-kasprzycki@gmail.com
+ * @author Paweł Kołczyk-Kasprzycki pawel.kolczyk.kasprzycki@gmail.com
  * <p>
  * Purpose of this class is to show class structure in Java
  */

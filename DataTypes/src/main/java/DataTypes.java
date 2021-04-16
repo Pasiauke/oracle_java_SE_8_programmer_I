@@ -1,3 +1,6 @@
+import variables.Casting;
+import variables.Variables;
+
 import java.util.Arrays;
 
 public class DataTypes {
@@ -8,6 +11,8 @@ public class DataTypes {
             switch (argument) {
                 case VARIABLES:
                     System.out.println("Hello! Start Variables tutorial...");
+                    new Variables().variables();
+                    new Casting().casting();
                     break;
                 case PRIMITIVES:
                     System.out.println("Hello! Start Primitives tutorial...");

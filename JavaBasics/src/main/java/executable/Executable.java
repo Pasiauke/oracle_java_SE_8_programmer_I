@@ -1,7 +1,7 @@
 package executable;
 
 /**
- * @author Paweł Kołczyk-Kasprzycki pawel.kolczyk-kasprzycki@gmail.com
+ * @author Paweł Kołczyk-Kasprzycki pawel.kolczyk.kasprzycki@gmail.com
  * <p>
  * Purpose of this class is to show how to run java program and producing console output
  * <p>

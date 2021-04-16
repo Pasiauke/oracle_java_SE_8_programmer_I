@@ -10,7 +10,7 @@ import static imp.other.OtherClass.staticPublicMethod; // We can also import a m
 import static imp.other.OtherClass.STATIC_FIELD; // The same if we want to import field
 
 /**
- * @author Paweł Kołczyk-Kasprzycki pawel.kolczyk-kasprzycki@gmail.com
+ * @author Paweł Kołczyk-Kasprzycki pawel.kolczyk.kasprzycki@gmail.com
  * <p>
  * Purpose of this class is to show how to import class and fields in order to use in our app
  */

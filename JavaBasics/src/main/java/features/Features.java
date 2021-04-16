@@ -1,7 +1,7 @@
 package features;
 
 /**
- * @author Paweł Kołczyk-Kasprzycki pawel.kolczyk-kasprzycki@gmail.com
+ * @author Paweł Kołczyk-Kasprzycki pawel.kolczyk.kasprzycki@gmail.com
  * <p>
  * This purpose of this class is to describe the main features of the java language and platform
  */
