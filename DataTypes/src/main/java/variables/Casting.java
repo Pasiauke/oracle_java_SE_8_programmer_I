@@ -57,7 +57,5 @@ public class Casting {
 
         // The boolean data type is an exception - it cannot be casted to other types and other types cannot cast from boolean
 
-
-
     }
 }
