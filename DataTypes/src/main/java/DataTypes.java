@@ -1,3 +1,4 @@
+import primitives.Primitives;
 import variables.Casting;
 import variables.Variables;
 
@@ -16,6 +17,7 @@ public class DataTypes {
                     break;
                 case PRIMITIVES:
                     System.out.println("Hello! Start Primitives tutorial...");
+                    new Primitives().primitives();
                     break;
                 case WRITE_OBJECTS:
                     System.out.println("Hello! Start Write objects to field tutorial...");
