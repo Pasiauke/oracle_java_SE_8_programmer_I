@@ -1,8 +1,14 @@
 package datatypes.primitives.references;
 
 import common.Lesson;
+import datatypes.primitives.references.base.MapKey;
+import datatypes.primitives.references.base.MapValue;
+import datatypes.primitives.references.base.SimpleClass;
 
 import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.WeakHashMap;
 
 import static datatypes.primitives.References.callGC;
 
@@ -10,33 +16,91 @@ public class WeakReferences implements Lesson {
 
     @Override
     public void start() {
+        part1();
+        part2();
+    }
 
-        // A weakly referenced object is cleared by the Garbage Collector when it's weakly reachable.
-        System.out.println("Create WEAK object with strong reference");
-        SampleClass sampleClass = new SampleClass("WEAK");
+    private void part1() {
+        System.out.println("=== PART I - WeakReference for an object ===");
+        System.out.println("Create ABC object with strong reference");
+        SimpleClass abc = new SimpleClass("ABC");
 
-        // Create weak reference by
-        System.out.println("Create Weak Reference to a WEAK object");
-        WeakReference<SampleClass> sampleClassWeakReference = new WeakReference<>(sampleClass);
-        callGC();
-        WeakReference<SampleClass> weakRef = new WeakReference<>(new SampleClass());
+        System.out.println("Create Weak Reference to a ABC object");
+        WeakReference<SimpleClass> abcWeakReference = new WeakReference<>(abc);
 
-        System.out.println("Retrieve object with weak reference");
-        SampleClass ref2 = sampleClassWeakReference.get();
+        System.out.println("Retrieve ABC object from weak reference");
+        SimpleClass abcFromWeakReference = abcWeakReference.get();
 
-        System.out.println("sampleClass: " + sampleClass + " ref2: " + ref2);
-        sampleClassWeakReference.clear();
-        sampleClass = null;
-        System.out.println("sampleClass: " + sampleClass + " ref2: " + ref2);
-
-        callGC();
-        ref2.display();
-
-        ref2 = null;
-        System.out.println("sampleClass: " + sampleClass + " ref2: " + ref2);
+        System.out.println("abc: " + abc + " abcWeakReference: " + abcWeakReference + " abcFromWeakReference: " + abcFromWeakReference);
 
         callGC();
 
+        System.out.println("Clear abcWeakReference");
+        abcWeakReference.clear();
+        callGC();
+        System.out.println("abc: " + abc + " abcWeakReference: " + abcWeakReference + " abcFromWeakReference: " + abcFromWeakReference);
 
+        System.out.println("Assign null reference to abc");
+        abc = null;
+        callGC();
+        System.out.println("abc: " + abc + " abcWeakReference: " + abcWeakReference + " abcFromWeakReference: " + abcFromWeakReference);
+
+        abcFromWeakReference.display();
+
+        System.out.println("Assign null reference to abcFromWeakReference");
+        abcFromWeakReference = null;
+        callGC();
+        System.out.println("abc: " + abc + " abcWeakReference: " + abcWeakReference + " abcFromWeakReference: " + abcFromWeakReference);
+
+        System.out.println("Assign null reference to abcWeakReference");
+        abcWeakReference = null;
+        callGC();
+
+        System.out.println("abc: " + abc + " abcWeakReference: " + abcWeakReference + " abcFromWeakReference: " + abcFromWeakReference);
+
+    }
+
+    private void part2() {
+        System.out.println("\n\n=== PART II - WeakReference with WeakHashMap ===");
+
+        MapKey simpleKey1 = new MapKey("SK1");
+        MapKey simpleKey2 = new MapKey("SK2");
+
+        MapValue simpleValue1 = new MapValue();
+        MapValue simpleValue2 = new MapValue();
+
+        MapKey weakKey1 = new MapKey("WK1");
+        MapKey weakKey2 = new MapKey("WK2");
+
+        MapValue weakValue1 = new MapValue();
+        MapValue weakValue2 = new MapValue();
+
+        System.out.println("Preparing maps...");
+        HashMap<MapKey, MapValue> simpleMap = new HashMap<>();
+        simpleMap.put(simpleKey1, simpleValue1);
+        simpleMap.put(simpleKey2, simpleValue2);
+
+        WeakHashMap<MapKey, MapValue> weakMap = new WeakHashMap<>();
+        weakMap.put(weakKey1, weakValue1);
+        weakMap.put(weakKey2, weakValue2);
+
+        printMap("Simple map:", simpleMap);
+        printMap("Weak map:", weakMap);
+
+        System.out.println("\nRemove simple key...");
+        simpleKey1 = null;
+        System.out.println("Remove weak key...");
+        weakKey1 = null;
+
+        callGC();
+
+        printMap("Simple map:", simpleMap);
+        printMap("Weak map:", weakMap);
+
+    }
+
+    private void printMap(final String mapTitle, final Map<MapKey, MapValue> map) {
+        System.out.println(mapTitle);
+        map.forEach((k, v) -> System.out.println(k + ", " + v));
     }
 }

@@ -1,6 +1,7 @@
 package datatypes.primitives.references;
 
 import common.Lesson;
+import datatypes.primitives.references.base.SimpleClass;
 
 import static datatypes.primitives.References.callGC;
 
@@ -14,8 +15,8 @@ public class StrongReferences implements Lesson {
         // strong reference to a value.
 
         // Strong reference is created
-        SampleClass abc = new SampleClass();
-        SampleClass def = new SampleClass("DEF");
+        SimpleClass abc = new SimpleClass();
+        SimpleClass def = new SimpleClass("DEF");
         abc.display();
 
         // Forceful call the garbage collector

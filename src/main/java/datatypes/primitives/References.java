@@ -14,10 +14,10 @@ public class References implements Lesson {
 
     private static final String REFERENCE_LESSONS =
             "1. Strong/final references\n" +
-                    "2.Weak references\n" +
-                    "3.Soft references\n" +
-                    "4.Phantom references\n" +
-                    "5.Exit";
+                    "2. Weak references\n" +
+                    "3. Soft references\n" +
+                    "4. Phantom references\n" +
+                    "5. Exit";
 
     private static final Map<Integer, Lesson> referenceLessons = new HashMap<>();
 

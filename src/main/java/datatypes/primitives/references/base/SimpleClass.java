@@ -1,14 +1,14 @@
-package datatypes.primitives.references;
+package datatypes.primitives.references.base;
 
-public class SampleClass {
+public class SimpleClass {
 
     private final String field;
 
-    public SampleClass() {
+    public SimpleClass() {
         this("ABC");
     }
 
-    public SampleClass(final String field) {
+    public SimpleClass(final String field) {
         this.field = field;
     }
 
@@ -18,11 +18,11 @@ public class SampleClass {
 
     @Override
     protected void finalize() {
-        System.out.println(">>> [" + this.field + "] object is collected by GC");
+        System.out.println(">>= [" + this.field + "] object is collected by GC");
     }
 
     @Override
     public String toString() {
-        return "Class field: " + this.field;
+        return this.field;
     }
 }
