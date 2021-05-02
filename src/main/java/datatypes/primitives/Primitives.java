@@ -1,13 +1,14 @@
 package datatypes.primitives;
 
+import common.Lesson;
+
 /**
  * @author Paweł Kołczyk-Kasprzycki pawel.kolczyk.kasprzycki@gmail.com
  * <p>
  * This class purpose is to show the difference between primitive and reference variables aswell as
  * describe all existing primitive types in java 8.
- *
  */
-public class Primitives {
+public class Primitives implements Lesson {
     // Primitive variable - this type of variables simply stores a value
     // Reference variable - this type of variables stores a reference to an object in memory
 
@@ -15,7 +16,8 @@ public class Primitives {
     // Object values are stored in HEAP memory
     // Object reference (address) stored in STACK pointed on the value in HEAP
 
-    public void primitives() {
+    @Override
+    public void start() {
 
         byte _byte = 0;             // SIZE: 8 bits     RANGE: -128 <=> 127
 

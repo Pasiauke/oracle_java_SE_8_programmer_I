@@ -6,7 +6,10 @@ import common.Lesson;
 import common.LessonDefinition;
 import common.NAME;
 import common.Tutorial;
+import datatypes.primitives.Primitives;
+import datatypes.primitives.References;
 import datatypes.variables.Casting;
+import datatypes.variables.Variables;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -44,7 +47,10 @@ public class OracleProgrammerSE8 {
                             new LessonDefinition("import", new Import()),
                             new LessonDefinition("executable", new Executable())),
                     new Tutorial(DATA_TYPES,
-                            new LessonDefinition("casting", new Casting()))
+                            new LessonDefinition("variables", new Variables()),
+                            new LessonDefinition("casting", new Casting()),
+                            new LessonDefinition("primitives", new Primitives()),
+                            new LessonDefinition("references", new References()))
             );
         }
 

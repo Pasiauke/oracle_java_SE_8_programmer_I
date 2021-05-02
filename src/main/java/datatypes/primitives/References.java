@@ -1,10 +1,12 @@
 package datatypes.primitives;
 
+import common.Lesson;
 import datatypes.primitives.references.StrongReferences;
 
-public class References {
+public class References implements Lesson {
 
-    public void references() {
+    @Override
+    public void start() {
 
         new StrongReferences().run();
     }

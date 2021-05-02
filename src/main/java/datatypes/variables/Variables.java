@@ -1,16 +1,19 @@
 package datatypes.variables;
 
+import common.Lesson;
+
 /**
  * @author Paweł Kołczyk-Kasprzycki pawel.kolczyk.kasprzycki@gmail.com
  * <p>
  * In this class we are gonna know how to declare and initialize variables.
  */
 
-public class Variables {
+public class Variables implements Lesson {
     // Field declaration:
     int classVariable;
 
-    public void variables() {
+    @Override
+    public void start() {
         int localVariable; // This is how you can declare variable. The syntax is
         // <data type> <variable name>;
         // you have to pass correct data type. It can be a class or a primitive type.
