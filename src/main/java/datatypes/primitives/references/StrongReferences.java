@@ -10,11 +10,11 @@ public class StrongReferences implements Lesson {
     @Override
     public void start() {
 
-        // Strong reference is default type objects reference in java.
-        // This means object will not be collected by garbage collector until it have a
-        // strong reference to a value.
+        System.out.println("Strong reference is default type objects reference in java.\n" +
+                "This means object will not be collected by garbage collector until it have a\n" +
+                "strong reference to a value.");
 
-        // Strong reference is created
+        System.out.println("Create ABC and DEF objects with strong reference...");
         SimpleClass abc = new SimpleClass();
         SimpleClass def = new SimpleClass("DEF");
         abc.display();
@@ -27,10 +27,7 @@ public class StrongReferences implements Lesson {
         // Forceful call the garbage collector
         callGC();
 
-        // Forceful call the garbage collector
-        callGC();
-
-        System.out.println("Detach reference from sampleClass1 object");
+        System.out.println("Detach reference from DEF object");
         def = null;
 
         // Forceful call the garbage collector

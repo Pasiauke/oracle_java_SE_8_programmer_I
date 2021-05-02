@@ -5,9 +5,11 @@ import datatypes.primitives.references.base.MapKey;
 import datatypes.primitives.references.base.MapValue;
 import datatypes.primitives.references.base.SimpleClass;
 
+import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.WeakHashMap;
 
 import static datatypes.primitives.References.callGC;
@@ -16,8 +18,28 @@ public class WeakReferences implements Lesson {
 
     @Override
     public void start() {
-        part1();
-        part2();
+        // Description from Baeldung. It must be changed in the future for something more explanatory
+        System.out.println("A weakly referenced object is cleared by the Garbage Collector when it's weakly reachable.\n" +
+                "\n" +
+                "Weak reachability means that an object has neither strong nor soft references pointing to it. The object can be reached only by traversing a weak reference." +
+                "\n" +
+                "First off, the Garbage Collector clears a weak reference, so the referent is no longer accessible. Then the reference is placed in a reference queue (if any associated exists) where we can obtain it from.\n" +
+                "\n" +
+                "At the same time, formerly weakly-reachable objects are going to be finalized.");
+        System.out.println("1 - Simple WeakReference\n2 - WeakHashMap\n3 - WeakReference with ReferenceQueue");
+        switch (new Scanner(System.in).nextInt()) {
+            case 1:
+                part1();
+                break;
+            case 2:
+                part2();
+                break;
+            case 3:
+                part3();
+                break;
+            default:
+                System.out.println("Invalid input");
+        }
     }
 
     private void part1() {
@@ -97,6 +119,36 @@ public class WeakReferences implements Lesson {
         printMap("Simple map:", simpleMap);
         printMap("Weak map:", weakMap);
 
+    }
+
+    private void part3() {
+        try {
+
+            System.out.println("\n\n=== PART III - WeakReference with ReferenceQueue ===");
+            System.out.println("\n ReferenceQueues can only be used to notify our code about the " +
+                    "loss of memory objects referred to by these non-strong references.\n");
+            System.out.println("Create ABC object with strong reference...");
+
+            SimpleClass abc = new SimpleClass("ABC");
+
+            System.out.println("Create ReferenceQueue...");
+            ReferenceQueue<SimpleClass> referenceQueue = new ReferenceQueue<>();
+
+            System.out.println("Create weak reference to ABC...");
+            WeakReference<SimpleClass> weakReference = new WeakReference<>(abc, referenceQueue);
+            System.out.println("Any weak references? " + (referenceQueue.poll() != null));
+            callGC();
+
+            System.out.println("Remove strong reference to ABC...");
+            abc = null;
+            callGC();
+
+            System.out.println("Any weak references was removed? " + (referenceQueue.remove() != null));
+            System.out.println("Does the weak reference still hold the heap object ? " + (weakReference.get() != null));
+            System.out.println("Is the weak reference added to the ReferenceQ  ? " + (weakReference.isEnqueued()));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     private void printMap(final String mapTitle, final Map<MapKey, MapValue> map) {
