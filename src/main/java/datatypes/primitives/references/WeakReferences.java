@@ -1,4 +1,10 @@
 package datatypes.primitives.references;
 
-public class WeakReferences {
+import common.Lesson;
+
+public class WeakReferences implements Lesson {
+    @Override
+    public void start() {
+
+    }
 }

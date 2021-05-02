@@ -1,4 +1,10 @@
 package datatypes.primitives.references;
 
-public class PhantomReferences {
+import common.Lesson;
+
+public class PhantomReferences implements Lesson {
+    @Override
+    public void start() {
+
+    }
 }

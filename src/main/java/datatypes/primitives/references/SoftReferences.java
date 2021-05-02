@@ -1,4 +1,11 @@
 package datatypes.primitives.references;
 
-public class SoftReferences {
+import common.Lesson;
+
+public class SoftReferences implements Lesson {
+
+    @Override
+    public void start() {
+
+    }
 }

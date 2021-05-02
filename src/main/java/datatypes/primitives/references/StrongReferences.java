@@ -1,16 +1,19 @@
 package datatypes.primitives.references;
 
+import common.Lesson;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 import static java.util.UUID.randomUUID;
 
-public class StrongReferences {
+public class StrongReferences implements Lesson {
 
     private static final Map<String, String> cache = new HashMap<>();
 
-    public void run() {
+    @Override
+    public void start() {
 
         Scanner scanner = new Scanner(System.in);
 

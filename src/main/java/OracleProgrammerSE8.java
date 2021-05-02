@@ -38,7 +38,6 @@ public class OracleProgrammerSE8 {
 
         private static final String EXIT = "exit";
 
-
         Starter() {
             registerTutorials(
                     new Tutorial(BASICS,
@@ -64,6 +63,7 @@ public class OracleProgrammerSE8 {
             while (scanner.hasNext()) {
                 final String input = scanner.next();
                 if (input.equals(EXIT)) {
+                    scanner.close();
                     break;
                 }
 
