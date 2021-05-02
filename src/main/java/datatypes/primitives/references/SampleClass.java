@@ -1,30 +1,28 @@
 package datatypes.primitives.references;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Random;
-
 public class SampleClass {
 
     private final String field;
 
-    private final int anotherField;
-
-    public SampleClass(final String field, final int anotherField) {
-        this.field = field;
-        this.anotherField = anotherField;
+    public SampleClass() {
+        this("ABC");
     }
 
-    public String compute() {
-        StringBuilder builder = new StringBuilder(field);
+    public SampleClass(final String field) {
+        this.field = field;
+    }
 
-        for (int i = 0; i < anotherField; i++) {
-            byte[] array = new byte[7]; // length is bounded by 7
-            new Random().nextBytes(array);
-            String generatedString = new String(array, StandardCharsets.UTF_8);
+    public void display() {
+        System.out.println("Display object: " + this.field);
+    }
 
-            builder.append(generatedString);
-        }
+    @Override
+    protected void finalize() {
+        System.out.println(">>> [" + this.field + "] object is collected by GC");
+    }
 
-        return builder.toString();
+    @Override
+    public String toString() {
+        return "Class field: " + this.field;
     }
 }

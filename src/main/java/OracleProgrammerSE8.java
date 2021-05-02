@@ -23,7 +23,7 @@ import static common.NAME.getByName;
 public class OracleProgrammerSE8 {
 
 
-    public static void main(String... args) {
+    public static void main(String... args) throws InterruptedException {
         new Starter().run();
     }
 
@@ -53,14 +53,15 @@ public class OracleProgrammerSE8 {
             );
         }
 
-        private void run() {
+        private void run() throws InterruptedException {
 
             System.out.println(WELCOME_MESSAGE);
-            System.out.println(CHOOSE_TUTORIAL_MESSAGE);
 
             final Scanner scanner = new Scanner(System.in);
 
-            while (scanner.hasNext()) {
+            while (true) {
+                System.out.println(CHOOSE_TUTORIAL_MESSAGE);
+
                 final String input = scanner.next();
                 if (input.equals(EXIT)) {
                     scanner.close();
@@ -70,13 +71,13 @@ public class OracleProgrammerSE8 {
                 Tutorial tutorial = tutorials.get(getByName(input));
                 if (tutorial == null) {
                     System.out.println(TUTORIAL_NOT_FOUND_MESSAGE);
-                    System.out.println(CHOOSE_TUTORIAL_MESSAGE);
                     continue;
                 }
-                System.out.printf((CHOOSE_LESSON_MESSAGE) + "%n", tutorial.getLessons().keySet());
 
                 final Scanner lessonScanner = new Scanner(System.in);
-                while (lessonScanner.hasNext()) {
+                while (true) {
+                    System.out.printf((CHOOSE_LESSON_MESSAGE) + "%n", tutorial.getLessons().keySet());
+
                     final String lessonTitle = lessonScanner.next();
                     if (lessonTitle.equals(EXIT)) {
                         break;
@@ -84,20 +85,14 @@ public class OracleProgrammerSE8 {
                     Lesson lesson = tutorial.getLessons().get(lessonTitle);
                     if (lesson == null) {
                         System.out.println(LESSON_NOT_FOUND_MESSAGE);
-                        System.out.printf((CHOOSE_LESSON_MESSAGE) + "%n", tutorial.getLessons().keySet());
                         continue;
                     }
 
                     System.out.println("START LESSON [" + lessonTitle + "]\n");
                     lesson.start();
+                    Thread.sleep(1000L);
                     System.out.println("\nEND LESSON [" + lessonTitle + "]\n");
-
-                    System.out.printf((CHOOSE_LESSON_MESSAGE) + "%n", tutorial.getLessons().keySet());
-
                 }
-
-                System.out.println(CHOOSE_TUTORIAL_MESSAGE);
-
             }
         }
 

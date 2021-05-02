@@ -34,24 +34,33 @@ public class References implements Lesson {
         System.out.println(REFERENCE_LESSONS);
         Scanner referenceScanner = new Scanner(System.in);
 
-        while (referenceScanner.hasNext()) {
-            final int referenceLesson = referenceScanner.nextInt();
+        final int referenceLesson = referenceScanner.nextInt();
 
-            if (referenceLesson == 5) {
-                break;
-            }
-            Lesson lesson = referenceLessons.get(referenceLesson);
-
-            if (lesson == null) {
-                System.out.println("Lesson not found");
-                System.out.println(REFERENCE_LESSONS);
-                continue;
-            }
-
-            lesson.start();
-
-            System.out.println(REFERENCE_LESSONS);
-
+        if (referenceLesson == 5) {
+            return;
         }
+        Lesson lesson = referenceLessons.get(referenceLesson);
+
+        if (lesson == null) {
+            System.out.println("Lesson not found");
+            System.out.println(REFERENCE_LESSONS);
+            return;
+        }
+
+        lesson.start();
+
+    }
+
+    public static void callGC() {
+        System.out.println("\n>>> Calling GC...");
+        System.gc();
+        try {
+            System.out.println(">>> Wait 2 sec");
+            Thread.sleep(2000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(">>> Calling GC DONE\n");
+
     }
 }
