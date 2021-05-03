@@ -6,6 +6,7 @@ import common.Lesson;
 import common.LessonDefinition;
 import common.NAME;
 import common.Tutorial;
+import datatypes.fields.FieldsReadWrite;
 import datatypes.primitives.Primitives;
 import datatypes.primitives.References;
 import datatypes.variables.Casting;
@@ -49,7 +50,8 @@ public class OracleProgrammerSE8 {
                             new LessonDefinition("variables", new Variables()),
                             new LessonDefinition("casting", new Casting()),
                             new LessonDefinition("primitives", new Primitives()),
-                            new LessonDefinition("references", new References()))
+                            new LessonDefinition("references", new References()),
+                            new LessonDefinition("fields", new FieldsReadWrite()))
             );
         }
 
