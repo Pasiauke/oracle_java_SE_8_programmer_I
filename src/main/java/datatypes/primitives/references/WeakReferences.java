@@ -18,14 +18,8 @@ public class WeakReferences implements Lesson {
 
     @Override
     public void start() {
-        // Description from Baeldung. It must be changed in the future for something more explanatory
-        System.out.println("A weakly referenced object is cleared by the Garbage Collector when it's weakly reachable.\n" +
-                "\n" +
-                "Weak reachability means that an object has neither strong nor soft references pointing to it. The object can be reached only by traversing a weak reference." +
-                "\n" +
-                "First off, the Garbage Collector clears a weak reference, so the referent is no longer accessible. Then the reference is placed in a reference queue (if any associated exists) where we can obtain it from.\n" +
-                "\n" +
-                "At the same time, formerly weakly-reachable objects are going to be finalized.");
+        System.out.println("Weak Reference is a type of reference to an existing object. Objects with this reference are eligible for GC to collect." +
+                "\nThe most common use of WeakReference is WeakHashMap which are using as cache memory.");
         System.out.println("1 - Simple WeakReference\n2 - WeakHashMap\n3 - WeakReference with ReferenceQueue");
         switch (new Scanner(System.in).nextInt()) {
             case 1:

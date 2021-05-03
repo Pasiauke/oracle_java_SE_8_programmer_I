@@ -3,13 +3,20 @@ package datatypes.primitives.references.base;
 public class SimpleClass {
 
     private final String field;
+    private final byte[] bytes;
 
     public SimpleClass() {
-        this("ABC");
+        this("ABC", new byte[]{});
     }
 
     public SimpleClass(final String field) {
         this.field = field;
+        this.bytes = new byte[]{};
+    }
+
+    public SimpleClass(final String field, final byte[] bytes) {
+        this.field = field;
+        this.bytes = bytes;
     }
 
     public void display() {
