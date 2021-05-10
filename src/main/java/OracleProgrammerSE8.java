@@ -7,6 +7,7 @@ import common.LessonDefinition;
 import common.NAME;
 import common.Tutorial;
 import datatypes.fields.FieldsReadWrite;
+import datatypes.lifecycle.ObjectLifecycle;
 import datatypes.primitives.Primitives;
 import datatypes.primitives.References;
 import datatypes.variables.Casting;
@@ -51,7 +52,8 @@ public class OracleProgrammerSE8 {
                             new LessonDefinition("casting", new Casting()),
                             new LessonDefinition("primitives", new Primitives()),
                             new LessonDefinition("references", new References()),
-                            new LessonDefinition("fields", new FieldsReadWrite()))
+                            new LessonDefinition("fields", new FieldsReadWrite()),
+                            new LessonDefinition("lifecycle", new ObjectLifecycle()))
             );
         }
 
@@ -102,6 +104,4 @@ public class OracleProgrammerSE8 {
             Arrays.stream(tutorials).forEach(tutorial -> this.tutorials.put(getByName(tutorial.getTitle()), tutorial));
         }
     }
-
-
 }
